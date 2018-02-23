@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>It's going tibia K.</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="shortcut icon" href="favicon.ico" /> -->
+  <link rel="stylesheet" type="text/css" href="tibiaList.css">
+</head>
+
+<body>
+  <form id="newItem">
+    <input id="itemSerial" type="number" required/> <!-- item number /makes the field required-->
+    <input id="itemName" type="text" required/>
+    <input id="itemQuantity" type="number" required/>
+    <button id="submit">Submit</button>
+  </form>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCamAAC2tpTxA_DZF6SH8joplbI_0ra7q4",
+    authDomain: "itsgoingtibiak.firebaseapp.com",
+    databaseURL: "https://itsgoingtibiak.firebaseio.com",
+    projectId: "itsgoingtibiak",
+    storageBucket: "itsgoingtibiak.appspot.com",
+    messagingSenderId: "937336475810"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+<script src="tibiaList.js"></script>
+
+</html>
