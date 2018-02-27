@@ -18,3 +18,4 @@ $("#submit").click( function() {
 
   fbRef.ref('items/' + itemSerial).set(newItem)
 })
+ 
