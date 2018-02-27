@@ -18,4 +18,10 @@ $("#submit").click( function() {
 
   fbRef.ref('items/' + itemSerial).set(newItem)
 })
- 
+
+var itemsRef = firebase.database().ref('/items/')
+let data;
+itemsRef.on('value', function(snapshot) {
+data = snapshot.val()})
+
+console.log(data)
