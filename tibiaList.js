@@ -1,6 +1,6 @@
 //CRUD
 //Create, read, delete, update
-
+//this is a comment
 var fbRef = firebase.database()
 
 $("#submit").click( function() {
@@ -20,8 +20,22 @@ $("#submit").click( function() {
 })
 
 var itemsRef = firebase.database().ref('/items/')
-let data;
-itemsRef.on('value', function(snapshot) {
-data = snapshot.val()})
+var itemsPromise = itemsRef.once('value').then(function(snapshot) {
+ return snapshot.val()
+})
 
-console.log(data)
+var itemsResolved = Promise.resolve(itemsPromise)
+
+itemsResolved.then( function(data) {
+  let dataKeys = Object.keys(data)
+  console.log(dataKeys)
+  for (var i = 0; i < dataKeys.length; i++) {
+    let datakey = dataKeys[i]
+    let item = data[datakey]
+    $("#container").append(`<div class="item" id=${item.serial}><p>${item.serial}</p><p>${item.name}</p><p>${item.quantity}</p><button id='${item.serial}button'>Delete</button></div>`)
+    $(`#${item.serial}button`).click(function() {
+      fbRef.ref(`/items/${item.serial}`).remove()
+      $(`#${item.serial}`).html('')
+    })
+  }
+})
