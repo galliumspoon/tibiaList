@@ -4,17 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="shortcut icon" href="favicon.ico" /> -->
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="tibiaList.css">
 </head>
 
 <body>
   <form id="newItem">
-    <input id="itemSerial" type="number" required/> <!-- item number /makes the field required-->
-    <input id="itemName" type="text" required/>
-    <input id="itemQuantity" type="number" required/>
-    <button id="submit">Submit</button>
+    <div id="inputs">
+      <input id="itemSerial" type="number" placeholder="code"required/> <!-- item number /makes the field required-->
+      <input id="itemName" type="text" placeholder="name"required/>
+      <input id="itemQuantity" type="number" placeholder="amount" required/>
+      <button id="submit">Submit</button>
+    </div>
   </form>
-  <div id="container"> </div>
+  <div id="container">
+  <div class="item" id="labels"><p>Code</p><p>Name</p><p>Quantity</p><p></p></div>
+</div>
+
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>

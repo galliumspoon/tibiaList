@@ -35,7 +35,7 @@ itemsResolved.then( function(data) {
     $("#container").append(`<div class="item" id=${item.serial}><p>${item.serial}</p><p>${item.name}</p><p>${item.quantity}</p><button id='${item.serial}button'>Delete</button></div>`)
     $(`#${item.serial}button`).click(function() {
       fbRef.ref(`/items/${item.serial}`).remove()
-      $(`#${item.serial}`).html('')
+      $(`#${item.serial}`).remove()
     })
   }
 })
